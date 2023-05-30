@@ -60,6 +60,9 @@ class HMM(object):
         self.Pi = self.Pi / self.Pi.sum()
 
     def test(self, word_lists, word2id, tag2id):
+        """
+        输入word_lists，根据word2id,tag2id进行推理获得pred_tag_lists
+        """
         pred_tag_lists = []
         for word_list in word_lists:
             pred_tag_list = self.decoding(word_list, word2id, tag2id)

@@ -39,3 +39,18 @@ def build_map(lists):
                 maps[e] = len(maps)
 
     return maps
+
+def build_infer_corpus(sentence):
+    word_lists = []
+    tag_lists = []
+    word_list = []
+    tag_list = []
+    for word in sentence:
+        word_list.append(word)
+        tag_list.append('B-PRO')
+    tag_lists.append(tag_list)
+    word_lists.append(word_list)
+    word2id = build_map(word_lists)
+    tag2id = build_map(tag_lists)
+    tag2id = build_map(word_lists)
+    return word_lists, tag_lists, word2id, tag2id

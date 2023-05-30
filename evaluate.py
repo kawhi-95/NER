@@ -70,8 +70,7 @@ def bilstm_train_and_eval(train_data, dev_data, test_data,
 
     print("训练完毕,共用时{}秒.".format(int(time.time()-start)))
     print("评估{}模型中...".format(model_name))
-    pred_tag_lists, test_tag_lists = bilstm_model.test(
-        test_word_lists, test_tag_lists, word2id, tag2id)
+    pred_tag_lists, test_tag_lists = bilstm_model.test(test_word_lists, test_tag_lists, word2id, tag2id)
 
     metrics = Metrics(test_tag_lists, pred_tag_lists, remove_O=remove_O)
     metrics.report_scores()
